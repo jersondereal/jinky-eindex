@@ -1,6 +1,193 @@
 -- Insert sample students
-INSERT INTO students (id, name, rfid_tag, course, year, section) VALUES (1, 'John Doe', '1234567890', 'BSIT', 1, 'A'), (2, 'Jane Smith', '1234567891', 'BSED', 2, 'B'), (3, 'Alice Brown', '1234567892', 'BSCRIM', 3, 'C'), (4, 'Bob Johnson', '1234567893', 'BSIT', 4, 'D'), (5, 'Clara Wilson', '1234567894', 'BSED', 1, 'E'), (6, 'Daniel Davis', '1234567895', 'BSCRIM', 2, 'A'), (7, 'Emma Thomas', '1234567896', 'BSIT', 3, 'B'), (8, 'Frank Miller', '1234567897', 'BSED', 4, 'C'), (9, 'Grace Moore', '1234567898', 'BSCRIM', 1, 'D'), (10, 'Henry White', '1234567899', 'BSIT', 2, 'E'), (11, 'Ivy Taylor', '1234567880', 'BSED', 3, 'A'), (12, 'Jack Anderson', '1234567881', 'BSCRIM', 4, 'B'), (13, 'Karen Harris', '1234567882', 'BSIT', 1, 'C'), (14, 'Leo Martin', '1234567883', 'BSED', 2, 'D'), (15, 'Mia Lee', '1234567884', 'BSCRIM', 3, 'E'), (16, 'Nathan Walker', '1234567885', 'BSIT', 4, 'A'), (17, 'Olivia Hall', '1234567886', 'BSED', 1, 'B'), (18, 'Paul Young', '1234567887', 'BSCRIM', 2, 'C'), (19, 'Quincy King', '1234567888', 'BSIT', 3, 'D'), (20, 'Rachel Scott', '1234567889', 'BSED', 4, 'E');
-
+INSERT INTO students (
+        id,
+        student_id,
+        name,
+        rfid_tag,
+        course,
+        year,
+        section
+    )
+VALUES (
+        1,
+        '00-0001',
+        'John Doe',
+        '1234567890',
+        'BSIT',
+        1,
+        'A'
+    ),
+    (
+        2,
+        '00-0002',
+        'Jane Smith',
+        '1234567891',
+        'BSED',
+        2,
+        'B'
+    ),
+    (
+        3,
+        '00-0003',
+        'Alice Brown',
+        '1234567892',
+        'BSCRIM',
+        3,
+        'C'
+    ),
+    (
+        4,
+        '00-0004',
+        'Bob Johnson',
+        '1234567893',
+        'BSIT',
+        4,
+        'D'
+    ),
+    (
+        5,
+        '00-0005',
+        'Clara Wilson',
+        '1234567894',
+        'BSED',
+        1,
+        'E'
+    ),
+    (
+        6,
+        '00-0006',
+        'Daniel Davis',
+        '1234567895',
+        'BSCRIM',
+        2,
+        'A'
+    ),
+    (
+        7,
+        '00-0007',
+        'Emma Thomas',
+        '1234567896',
+        'BSIT',
+        3,
+        'B'
+    ),
+    (
+        8,
+        '00-0008',
+        'Frank Miller',
+        '1234567897',
+        'BSED',
+        4,
+        'C'
+    ),
+    (
+        9,
+        '00-0009',
+        'Grace Moore',
+        '1234567898',
+        'BSCRIM',
+        1,
+        'D'
+    ),
+    (
+        10,
+        '00-0010',
+        'Henry White',
+        '1234567899',
+        'BSIT',
+        2,
+        'E'
+    ),
+    (
+        11,
+        '00-0011',
+        'Ivy Taylor',
+        '1234567880',
+        'BSED',
+        3,
+        'A'
+    ),
+    (
+        12,
+        '00-0012',
+        'Jack Anderson',
+        '1234567881',
+        'BSCRIM',
+        4,
+        'B'
+    ),
+    (
+        13,
+        '00-0013',
+        'Karen Harris',
+        '1234567882',
+        'BSIT',
+        1,
+        'C'
+    ),
+    (
+        14,
+        '00-0014',
+        'Leo Martin',
+        '1234567883',
+        'BSED',
+        2,
+        'D'
+    ),
+    (
+        15,
+        '00-0015',
+        'Mia Lee',
+        '1234567884',
+        'BSCRIM',
+        3,
+        'E'
+    ),
+    (
+        16,
+        '00-0016',
+        'Nathan Walker',
+        '1234567885',
+        'BSIT',
+        4,
+        'A'
+    ),
+    (
+        17,
+        '00-0017',
+        'Olivia Hall',
+        '1234567886',
+        'BSED',
+        1,
+        'B'
+    ),
+    (
+        18,
+        '00-0018',
+        'Paul Young',
+        '1234567887',
+        'BSCRIM',
+        2,
+        'C'
+    ),
+    (
+        19,
+        '00-0019',
+        'Quincy King',
+        '1234567888',
+        'BSIT',
+        3,
+        'D'
+    ),
+    (
+        20,
+        '00-0020',
+        'Rachel Scott',
+        '1234567889',
+        'BSED',
+        4,
+        'E'
+    );
 -- Insert sample records
 INSERT INTO records (
         student_id,

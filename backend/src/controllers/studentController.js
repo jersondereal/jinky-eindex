@@ -62,13 +62,22 @@ exports.getStudentRecords = async (req, res) => {
 
 exports.createStudent = async (req, res) => {
     try {
-        const { name, rfid_tag, course, year, section } = req.body;
+        const { student_id, name, rfid_tag, course, year, section } = req.body;
         
         // Basic validation
-        if (!name || !rfid_tag || !course || !year || !section) {
+        if (!student_id || !name || !rfid_tag || !course || !year || !section) {
             return res.status(400).json({ 
                 success: false, 
                 message: 'All fields are required' 
+            });
+        }
+
+        // Validate student_id format (00-0000)
+        const studentIdPattern = /^\d{2}-\d{4}$/;
+        if (!studentIdPattern.test(student_id)) {
+            return res.status(400).json({
+                success: false,
+                message: 'Student ID must be in the format 00-0000'
             });
         }
 
@@ -83,6 +92,7 @@ exports.createStudent = async (req, res) => {
 
         // Create student with validated data
         const insertId = await Student.create({
+            student_id: student_id.trim(),
             name: name.trim(),
             rfid_tag: rfid_tag.trim(),
             course: course.trim(),
@@ -100,7 +110,7 @@ exports.createStudent = async (req, res) => {
         if (error.code === 'ER_DUP_ENTRY') {
             res.status(400).json({ 
                 success: false, 
-                message: 'RFID tag already exists' 
+                message: error.message.includes('student_id') ? 'Student ID already exists' : 'RFID tag already exists'
             });
         } else {
             res.status(500).json({ 
@@ -113,18 +123,28 @@ exports.createStudent = async (req, res) => {
 
 exports.updateStudent = async (req, res) => {
     try {
-        const { name, rfid_tag, course, year, section } = req.body;
+        const { student_id, name, rfid_tag, course, year, section } = req.body;
         const studentId = req.params.id;
 
         // Basic validation
-        if (!name || !rfid_tag || !course || !year || !section) {
+        if (!student_id || !name || !rfid_tag || !course || !year || !section) {
             return res.status(400).json({ 
                 success: false, 
                 message: 'All fields are required' 
             });
         }
 
+        // Validate student_id format (00-0000)
+        const studentIdPattern = /^\d{2}-\d{4}$/;
+        if (!studentIdPattern.test(student_id)) {
+            return res.status(400).json({
+                success: false,
+                message: 'Student ID must be in the format 00-0000'
+            });
+        }
+
         const success = await Student.update(studentId, {
+            student_id,
             name,
             rfid_tag,
             course,
@@ -148,7 +168,7 @@ exports.updateStudent = async (req, res) => {
         if (error.code === 'ER_DUP_ENTRY') {
             res.status(400).json({ 
                 success: false, 
-                message: 'RFID tag already exists' 
+                message: error.message.includes('student_id') ? 'Student ID already exists' : 'RFID tag already exists'
             });
         } else {
             res.status(500).json({ 

@@ -91,6 +91,10 @@ function renderStudentDetails(student) {
 
     studentInfo.innerHTML = `
         <div class="info-item">
+            <span class="info-label">Student ID:</span>
+            <span class="info-value">${student.student_id}</span>
+        </div>
+        <div class="info-item">
             <span class="info-label">Name:</span>
             <span class="info-value">${student.name}</span>
         </div>

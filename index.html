@@ -57,6 +57,7 @@
               <table id="studentsTable" class="table">
                 <thead>
                   <tr>
+                    <th>ID</th>
                     <th>NAME</th>
                     <th>COURSE</th>
                     <th>YEAR</th>
@@ -146,6 +147,19 @@
         </div>
         <div class="modal-body">
           <form id="addStudentForm">
+            <div class="form-group">
+              <label>Student ID</label>
+              <input
+                type="text"
+                class="form-control"
+                name="student_id"
+                placeholder="00-0000"
+                required
+                pattern="[0-9]{2}-[0-9]{4}"
+                autocomplete="off"
+              />
+              <div class="error-message">Please enter a valid student ID (format: 00-0000)</div>
+            </div>
             <div class="form-group">
               <label>Name</label>
               <input

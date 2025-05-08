@@ -71,7 +71,7 @@ function renderStudentsTable(students) {
     if (students.length === 0) {
         tbody.innerHTML = `
             <tr>
-                <td colspan="5" class="text-center">No students found</td>
+                <td colspan="6" class="text-center">No students found</td>
             </tr>
         `;
         return;
@@ -80,6 +80,7 @@ function renderStudentsTable(students) {
     students.forEach(student => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
+            <td>${student.student_id}</td>
             <td>${student.name}</td>
             <td>${student.course}</td>
             <td>${student.year}</td>
@@ -139,6 +140,14 @@ function validateStudentForm(data) {
     const form = document.getElementById('addStudentForm');
     clearValidation(form);
 
+    if (!data.student_id?.trim()) {
+        setInvalid('student_id', 'Student ID is required');
+        isValid = false;
+    } else if (!/^\d{2}-\d{4}$/.test(data.student_id)) {
+        setInvalid('student_id', 'Student ID must be in format 00-0000');
+        isValid = false;
+    }
+
     if (!data.name?.trim()) {
         setInvalid('name', 'Name is required');
         isValid = false;
@@ -192,6 +201,7 @@ export async function editStudent(id) {
         const form = document.getElementById('addStudentForm');
         
         // Fill form with complete student data
+        form.student_id.value = student.student_id;
         form.name.value = student.name;
         form.rfid_tag.value = student.rfid_tag;
         form.course.value = student.course;

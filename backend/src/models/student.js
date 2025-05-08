@@ -51,8 +51,8 @@ class Student {
         try {
             conn = await pool.getConnection();
             const [result] = await conn.query(
-                'INSERT INTO students (name, rfid_tag, course, year, section) VALUES (?, ?, ?, ?, ?)',
-                [studentData.name, studentData.rfid_tag, studentData.course, studentData.year, studentData.section]
+                'INSERT INTO students (student_id, name, rfid_tag, course, year, section) VALUES (?, ?, ?, ?, ?, ?)',
+                [studentData.student_id, studentData.name, studentData.rfid_tag, studentData.course, studentData.year, studentData.section]
             );
             return result.insertId;
         } catch (error) {
@@ -67,8 +67,8 @@ class Student {
         try {
             conn = await pool.getConnection();
             const [result] = await conn.query(
-                'UPDATE students SET name = ?, rfid_tag = ?, course = ?, year = ?, section = ? WHERE id = ?',
-                [studentData.name, studentData.rfid_tag, studentData.course, studentData.year, studentData.section, id]
+                'UPDATE students SET student_id = ?, name = ?, rfid_tag = ?, course = ?, year = ?, section = ? WHERE id = ?',
+                [studentData.student_id, studentData.name, studentData.rfid_tag, studentData.course, studentData.year, studentData.section, id]
             );
             return result.affectedRows > 0;
         } catch (error) {
