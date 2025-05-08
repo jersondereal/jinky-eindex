@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function loadStudentDetails() {
     try {
         console.log('Fetching student details for ID:', currentStudentId);
-        const response = await fetch(`http://localhost:3000/api/students/${currentStudentId}`);
+        const response = await fetch(`https://jinky-eindex.onrender.com/api/students/${currentStudentId}`);
         console.log('Student details response status:', response.status);
         
         if (!response.ok) {

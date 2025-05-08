@@ -1,7 +1,7 @@
 import { clearValidation, resetForm, showToast } from './api.js';
 
 // API URL
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'https://jinky-eindex.onrender.com/api';
 
 let currentRecordId = null;
 let currentStudentId = null;

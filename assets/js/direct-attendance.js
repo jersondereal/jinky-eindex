@@ -16,7 +16,7 @@ export function initializeDirectAttendance() {
         const rfidTag = e.target.value.trim();
         if (rfidTag.length === 10) { // Assuming RFID tags are 10 characters
             try {
-                const response = await fetch(`http://localhost:3000/api/students/rfid/${rfidTag}`);
+                const response = await fetch(`https://jinky-eindex.onrender.com/api/students/rfid/${rfidTag}`);
                 const data = await response.json();
                 
                 if (data.success) {

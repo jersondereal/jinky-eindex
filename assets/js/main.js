@@ -72,7 +72,7 @@ async function handleRFIDScan() {
     if (!rfidValue) return;
 
     try {
-        const response = await fetch(`http://localhost:3000/api/students/rfid/${rfidValue}`);
+        const response = await fetch(`https://jinky-eindex.onrender.com/api/students/rfid/${rfidValue}`);
         const data = await response.json();
 
         if (data.success) {

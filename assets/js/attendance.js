@@ -10,7 +10,7 @@ export function initializeAttendance(studentId) {
 
 export async function loadAttendanceRecords(studentId, subjectId = null) {
     try {
-        let url = `http://localhost:3000/api/attendance/students/${studentId}`;
+        let url = `https://jinky-eindex.onrender.com/api/attendance/students/${studentId}`;
         if (subjectId) {
             url += `?subjectId=${subjectId}`;
         }
@@ -26,7 +26,7 @@ export async function loadAttendanceRecords(studentId, subjectId = null) {
 
 async function loadSubjects() {
     try {
-        const response = await fetch('http://localhost:3000/api/attendance/subjects');
+        const response = await fetch('https://jinky-eindex.onrender.com/api/attendance/subjects');
         if (!response.ok) throw new Error('Failed to load subjects');
         const data = await response.json();
         updateSubjectSelect(data.subjects);
@@ -133,7 +133,7 @@ function closeDeleteModal() {
 
 async function confirmDelete(recordId) {
     try {
-        const response = await fetch(`http://localhost:3000/api/attendance/${recordId}`, {
+        const response = await fetch(`https://jinky-eindex.onrender.com/api/attendance/${recordId}`, {
             method: 'DELETE'
         });
         if (!response.ok) throw new Error('Failed to delete attendance record');

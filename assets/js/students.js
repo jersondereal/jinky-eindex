@@ -180,7 +180,7 @@ export async function editStudent(id) {
         currentStudentId = id;
         
         // Fetch complete student data from API
-        const response = await fetch(`http://localhost:3000/api/students/${id}`);
+        const response = await fetch(`https://jinky-eindex.onrender.com/api/students/${id}`);
         const data = await response.json();
         
         if (!data.success) {
